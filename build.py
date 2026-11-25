@@ -128,7 +128,7 @@ def web():
             index = book_outline(chapter, outlines)
             prev = adjacent(path, CHAPTERS[i-1]) if i else ''
             next_link = adjacent(path, CHAPTERS[i+1] if i+1 < len(CHAPTERS) else None, True)
-            chapter_end = tmpl('chapter-end', author=escape(AUTHOR), links=prev + next_link)
+            chapter_end = tmpl('chapter-end', title=escape(TITLE), links=prev + next_link)
             if not path:
                 render(output, '', '', tmpl('opening', heading=escape(TITLE), toc=index, text=fragment,
                                             chapter_end=chapter_end), track_index=True)

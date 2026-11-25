@@ -99,7 +99,7 @@ h1,h2,h3,h4{line-height:1.08}
 .chapter-colophon{display:flex;align-items:center;gap:clamp(.4rem,2vw,1rem);margin:0;color:var(--muted);font:.79rem/1.4 var(--type);text-align:center}
 .chapter-colophon::before,.chapter-colophon::after{content:"";flex:1 0 .5rem;border-top:1px solid var(--line)}
 .chapter-colophon cite{font-style:italic}
-.colophon-author{white-space:nowrap}
+
 .pagination{margin-top:.4rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 
 .pagination a{padding:1rem 0;display:grid;gap:.3em;line-height:1.2;color:var(--ink);text-decoration:none}
