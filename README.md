@@ -7,6 +7,7 @@ Carolyn Dougherty’s revised guide renders from `content/*.md` in one Optima-ba
 Requires Python 3.12+ (standard library only) and Pandoc 3.1.3+. No install step or network is needed once those tools are present.
 
 ```sh
+python3 -m unittest discover -s tests
 python3 build.py
 python3 tests/check_site.py
 python3 -m http.server 8000 --directory dist

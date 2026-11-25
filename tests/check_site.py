@@ -14,6 +14,8 @@ class Page(HTMLParser):
         self.links = []
         self.scripts = []
         self.theme_colors = []
+        self.refresh = []
+        self.headings = []
         self.text = []
         self.feed(file.read_text(encoding='utf-8'))
         assert not re.search(r'(?<! )—|—(?! )', ''.join(self.text)), f'unspaced em dash: {file}'
@@ -29,6 +31,10 @@ class Page(HTMLParser):
             self.scripts.append(attrs.get('src'))
         if tag == 'meta' and attrs.get('name') == 'theme-color':
             self.theme_colors.append(attrs.get('content'))
+        if tag == 'meta' and attrs.get('http-equiv') == 'refresh':
+            self.refresh.append(attrs['content'])
+        if tag == 'h2' and 'id' in attrs:
+            self.headings.append(attrs['id'])
         self.links.extend(attrs[a] for a in ('href', 'src') if a in attrs)
 
     def handle_data(self, data):
@@ -38,8 +44,8 @@ class Page(HTMLParser):
 pages = {file: Page(file) for file in ROOT.rglob('*.html')}
 chapters = ('introduction', 'prolog', 'history-and-development', 'existing-campus', 'resources', 'epilog', 'bibliography')
 reading_pages = {'index.html', *(f'guide/{slug}/index.html' for slug in chapters[1:])}
-redirect_pages = {'guide/index.html', 'guide/introduction/index.html'}
-assert {str(file.relative_to(ROOT)) for file in pages} == reading_pages | redirect_pages
+redirect_pages = {'guide/index.html': '../#contents', 'guide/introduction/index.html': '../../#welcome-title'}
+assert {file.relative_to(ROOT).as_posix() for file in pages} == reading_pages | redirect_pages.keys()
 css = (ROOT / 'assets/site.css').read_text(encoding='utf-8')
 paper = re.search(r':root\s*\{[^}]*--paper:\s*(#[0-9a-fA-F]{6})\s*;', css)[1]
 for file, page in pages.items():
@@ -52,7 +58,8 @@ for file, page in pages.items():
     html = file.read_text(encoding='utf-8')
     assert 'class="masthead"' not in html and 'Digital edition by' not in html
     if relative_file in redirect_pages:
-        assert 'http-equiv="refresh"' in html and '<main' not in html
+        destination = redirect_pages[relative_file]
+        assert page.refresh == [f'0;url={destination}'] and page.links == [destination]
     if expected_scripts:
         assert page.theme_colors == [paper], (relative_file, page.theme_colors)
         assert html.count('<nav class="pagination"') == 1
@@ -66,8 +73,7 @@ for file, page in pages.items():
     index = re.search(r'<nav class="chapter-toc"[^>]*>(.*?)</nav>', html, re.S)
     if expected_scripts:
         assert index
-        headings = re.findall(r'<h2 id="([^"]+)">', html)
-        assert re.findall(r'href="#([^"]+)"', index[1]) == headings
+        assert re.findall(r'href="#([^"]+)"', index[1]) == page.headings
         chapter_urls = re.findall(r'class="chapter-toc-chapter" href="([^"]+)"', index[1])
         assert (file.parent / chapter_urls[0]).resolve() == ROOT
         assert [(file.parent / url).resolve().name for url in chapter_urls[1:]] == list(chapters[1:])

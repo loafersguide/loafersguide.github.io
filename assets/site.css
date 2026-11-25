@@ -17,7 +17,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 h1,h2,h3,h4{line-height:1.08}
 .prose{font-size:var(--prose-size);line-height:1.51;overflow-wrap:break-word}
 .prose>p{margin:0 0 1em}
-.chapter-toc ol{padding:0;margin:.55rem 0 0;list-style:none}
+
 .chapter-heading{font-weight:700;letter-spacing:-.035em;font-size:clamp(2.25rem,4.5vw,3.75rem);line-height:1.08;text-wrap:balance}
 .book-title{margin-bottom:clamp(1.5rem,4vw,3rem)}
 .book-title .chapter-heading,.book-title p{margin:0}
@@ -90,7 +90,7 @@ h1,h2,h3,h4{line-height:1.08}
 
 .chapter-toc-sections{list-style:none;padding:0;margin:.25rem 0}
 .chapter-toc-sections a{font-size:.875rem}
-.sidenote-ref{line-height:0;font:600 .66em/0 var(--type);margin-inline:.13em .28em}
+.sidenote-ref{font:600 .66em/0 var(--type);margin-inline:.13em .28em}
 .sidenote{display:block;border-left:1px solid var(--line);padding-left:.75em;color:var(--muted);font:.9em/1.45 var(--type);margin:1em 0}
 .sidenote-number{color:var(--accent);font-weight:650}
 .sidenote-back{font-family:var(--type);font-size:.82em}
@@ -150,7 +150,7 @@ h1,h2,h3,h4{line-height:1.08}
  --dot-size:.4375rem;
  position:relative;text-align:right
 }
-.chapter-toc-track ol{margin:0;padding-inline-start:1.125rem}
+.chapter-toc-track ol{margin:0;padding:0;padding-inline-start:1.125rem;list-style:none}
 .chapter-toc a[aria-current=location]{color:var(--accent)}
 .chapter-toc-dot{
  position:absolute;top:0;left:0;

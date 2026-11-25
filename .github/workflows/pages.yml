@@ -23,6 +23,7 @@ jobs:
           sudo apt-get install --no-install-recommends -y pandoc
       - name: Build and check the site
         run: |
+          python3 -m unittest discover -s tests
           python3 build.py
           python3 tests/check_site.py
       - name: Upload Pages artifact
