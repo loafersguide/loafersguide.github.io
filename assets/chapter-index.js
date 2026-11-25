@@ -76,7 +76,12 @@
 
   function update() {
     frame = 0;
-    const readingLine = Math.min(window.innerHeight * .22, 160);
+    let readingLine = Math.min(window.innerHeight * .22, 160);
+    if (mobile.matches && sections.length) {
+      const padding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+      const margin = parseFloat(getComputedStyle(sections[0].heading).scrollMarginTop) || 0;
+      readingLine = Math.max(readingLine, padding + margin + 1);
+    }
     let active = chapter;
     // A short last section can be readable before its heading reaches the line.
     if (sections.length && prose.getBoundingClientRect().bottom <= window.innerHeight) {
