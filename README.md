@@ -23,7 +23,7 @@ In **Settings → Pages → Build and deployment**, set the source to **GitHub A
 - Edit prose in `content/`. Chapter order and slugs are explicit in `build.py`. Add a Markdown footnote with `[^label]`; simple notes sit beside their references in the right gutter on wide screens and in the text column on narrower screens. Richer notes stay linked endnotes, and the EPUB keeps conventional linked notes.
 - Presentation lives in `templates/` and `assets/*.css`, not in the manuscript.
 - For dashes, follow [Butterick’s conventions](https://practicaltypography.com/hyphens-and-dashes.html): use spaced em dashes for breaks in prose, unspaced en dashes for ranges and paired terms such as east–west, and hyphens for compound modifiers such as four-story.
-- `python3 build.py epub` creates `proofs/loafers-guide.epub` from the same sources. It is a reflowable EPUB 3 proof, not a public download; `epubcheck proofs/loafers-guide.epub` validates it. Keep reader-device testing and final release metadata for an EPUB release.
+- `python3 build.py epub` creates a reflowable EPUB 3 at `proofs/loafers-guide.epub`; `epubcheck proofs/loafers-guide.epub` validates it. Updates to `main` build and validate the same file, then attach it to a [GitHub Release](https://github.com/loafersguide/loafersguide.github.io/releases) tagged `epub-<short-commit-id>`. The EPUB is not part of the Pages build.
 
 ## Editorial handoff
 
