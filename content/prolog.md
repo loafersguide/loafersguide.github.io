@@ -2,11 +2,9 @@
 
 Founder's Rock sits in an isolated spot in the far northeastern corner of the main campus, surrounded but not shaded by native trees. It is a surprisingly comfortable seat and would be an excellent place to read, write or think if not for the proximity of the intersection of Hearst and Gayley. On its flat northern face is a plaque which reads:
 
-::: {.inscription}
 > Founder's Rock\
 > April 16, 1860\
 > Inscribed May 9, 1896.
-:::
 
 UC Berkeley, California's first university, is the great flagship of the mighty University of California. The rest of the fleet includes UCSF (1873), UCLA (1919), Davis (1922), UCSB (1944), Riverside (1954), UCSD (1964), Irvine (1965), and UCSC (1965) — and now UC Merced, as of 2004. It started out as a humble teacher's college, the Contra Costa Academy. In 1855 it changed its name to the College of California and moved to Oakland, the block bounded by 12th Street, 14th Street, Franklin and Harrison, now a city parking lot. The college had chosen a new site, 160 acres north of Oakland, and obtained the required land by 1864, but didn't have the funds to build a new campus until it combined with the "Agricultural, Mining and Mechanic Arts College" the State Congress authorized in 1866 under the Morrill Act. The resulting University of California opened in 1869 but remained at its Oakland site until the completion of North and South Halls in 1873, the year of its first graduating class, known as the Twelve Apostles.
 

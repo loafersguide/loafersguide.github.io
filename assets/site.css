@@ -49,7 +49,7 @@ h1,h2,h3,h4{line-height:1.08}
 .smallcaps{font-variant-caps:small-caps}
 .prose blockquote{margin:1.45em 0;padding-inline-start:1.25em;border:0;color:var(--ink)}
 .prose blockquote p{margin:.5em 0}
-.prose .inscription blockquote{padding:0;text-align:center}
+
 .prose li{margin:.25em 0}
 .chapter-toc{color:var(--muted);font-family:var(--type);font-size:1rem;border-block:1px solid var(--line);padding:.35rem 0;margin-bottom:2rem}
 
